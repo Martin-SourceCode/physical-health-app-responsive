@@ -129,6 +129,7 @@
     <Content Include="font-awesome\scss\_spinning.scss" />
     <Content Include="font-awesome\scss\_stacked.scss" />
     <Content Include="font-awesome\scss\_variables.scss" />
+    <Content Include="healthapp_datastore\healthapp_datastore.sql" />
     <Content Include="Login.Master" />
     <None Include="packages.config" />
     <Content Include="img\Interneuron.png" />
