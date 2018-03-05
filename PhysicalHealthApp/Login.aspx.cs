@@ -39,10 +39,128 @@ namespace PhysicalHealthApp
 
                 this.lblError.Visible = false;
                 this.btnResendValidationEmail.Visible = false;
+                this.divThankYou.Visible = false;
+                this.divError.Visible = false;
+                this.lblEmailError.Visible = false;
 
                 string msgStatus = "";
                 
             }
+        }
+
+
+        private void SendEmail(string msg, string subject)
+        {
+            string msgStatus = "";
+
+            int EmailStatus = EmailHelper.SendMail(msg, subject, this.hdnEmail.Value, out msgStatus);
+
+            if (EmailStatus == 1)
+            {
+                this.divThankYou.Visible = true;
+            }
+            else
+            {
+                this.divThankYou.Visible = false;
+                this.lblEmailError.Text = msgStatus;
+                this.divError.Visible = true;
+                this.lblEmailError.Visible = true;
+            }
+
+        }
+
+
+        private void sendConfirmationEmail()
+        {
+            this.divThankYou.Visible = false;
+            this.divError.Visible = false;
+            this.lblEmailError.Visible = false;
+
+            this.lblError.Text = string.Empty;
+            this.lblError.Visible = false;
+
+            this.txtEmail.CssClass = this.txtEmail.CssClass.Replace("has-error", "");
+            this.fgtxtEmail.CssClass = this.fgtxtEmail.CssClass.Replace("has-error", "");
+
+
+            if (string.IsNullOrEmpty(this.txtEmail.Text.ToString()))
+            {
+                this.lblError.Text = "Please enter your email address";
+                this.lblError.Visible = true;
+                this.fgtxtEmail.CssClass = this.fgtxtEmail.CssClass.Replace("form-group", "form-group has-error");
+                return;
+            }
+            else
+            {
+                //Show the success message anyway so as not to give away user does not exist
+                this.divThankYou.Visible = true;
+            }
+
+
+
+            string siteURL = GetSiteURL();
+
+            string msg = "We have received a registration request to access the physical health site.<br /><br />";
+
+            msg += "Please click the link below (or right click and copy link into your browser) to confirm your account:<br />";
+
+
+            string emailLink = siteURL + "ConfirmAccount.aspx?id=";
+
+            string emailvalidationstring = "";
+            if (ValidateUser(out emailvalidationstring))
+            {
+                //Build site url
+                emailLink += emailvalidationstring;
+
+                msg += "<h3>" + emailLink + "</h3></br />";
+
+                string subject = "Confirmation Email";
+
+                SendEmail(msg, subject);
+
+            }
+        }
+
+
+        private string GetSiteURL()
+        {
+            string sql = "SELECT * FROM systemsetup WHERE systemsetupid = 1;";
+            string siteURL = "";
+
+            DataSet ds = DataServices.DataSetFromSQL(sql, null);
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                try { siteURL = dt.Rows[0]["siteurl"].ToString(); } catch { }
+            }
+
+            return siteURL;
+        }
+
+        private bool ValidateUser(out string emailvalidationstring)
+        {
+
+            emailvalidationstring = "";
+            string sql = "SELECT * FROM app_user WHERE emailaddress = @email;";
+            var paramList = new List<KeyValuePair<string, string>>() {
+                new KeyValuePair<string, string>("email", this.txtEmail.Text)
+            };
+
+
+
+            DataSet ds = DataServices.DataSetFromSQL(sql, paramList);
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                try { emailvalidationstring = dt.Rows[0]["emailvalidationstring"].ToString(); } catch { }
+
+                return true;
+            }
+
+
+            return false;
+
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -113,6 +231,8 @@ namespace PhysicalHealthApp
                 }
                 catch { }
 
+                this.hdnEmail.Value = this.txtEmail.Text;
+
                 if (emailconfirmed == "False")
                 {
                     this.lblError.Text = "Your account has been created but you have not confirmed your email address yet.<br /><br />Please check your spam folder for the email containing the link to confirm your account";
@@ -182,8 +302,11 @@ namespace PhysicalHealthApp
             return context.Request.ServerVariables["REMOTE_ADDR"];
         }
 
-
-
+        protected void btnResendValidationEmail_Click(object sender, EventArgs e)
+        {
+            sendConfirmationEmail();
+            this.btnResendValidationEmail.Visible = false;
+        }
     }
 
 }

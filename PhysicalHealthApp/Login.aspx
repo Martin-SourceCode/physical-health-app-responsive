@@ -22,24 +22,40 @@
                             <h2 style="color: #2a9fd6; font-weight: bolder;">Login</h2>
                         </div>
 
-                        <asp:Panel id="fgtxtEmail" runat="server" CssClass="form-group">
+                        <asp:Panel ID="fgtxtEmail" runat="server" CssClass="form-group">
                             <label class="control-label" for="txtEmail">Email</label>
                             <asp:TextBox ID="txtEmail" runat="server" placeholder="Email" CssClass="form-control input-lg"></asp:TextBox>
                         </asp:Panel>
 
-                        <asp:Panel id="fgtxtPassword" runat="server" CssClass="form-group">
+                        <asp:Panel ID="fgtxtPassword" runat="server" CssClass="form-group">
                             <label class="control-label" for="txtPassword">Password</label>
                             <asp:TextBox ID="txtPassword" runat="server" placeholder="Password" CssClass="form-control input-lg" TextMode="Password"></asp:TextBox>
                         </asp:Panel>
 
-                        <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-lg btn-primary btn-block" Text="Sign In" OnClick="btnLogin_Click"/>
+                        <asp:Button ID="btnLogin" runat="server" CssClass="btn btn-lg btn-primary btn-block" Text="Sign In" OnClick="btnLogin_Click" />
 
 
                         <asp:Label ID="lblError" runat="server" CssClass="contentAlertDanger"></asp:Label>
 
-                        <asp:Button ID="btnResendValidationEmail" runat="server" Text="Resend Validation Email" CssClass="btn btn-block btn-success" />
+                        <asp:Button ID="btnResendValidationEmail" runat="server" Text="Resend Validation Email" CssClass="btn btn-block btn-success" onclick="btnResendValidationEmail_Click"/>
 
+                        <br />
 
+                        <div id="divThankYou" runat="server" class="alert alert-success">
+                            <h3>Thank you</h3>
+                             Validation Email Sent Again
+                        </div>
+
+                        <div id="divError" runat="server" class="alert alert-danger">
+                            <h3>Error</h3>
+                            Sorry, something went wrong sending the email.
+                            <br />
+                            <br />
+                            Details:
+                            <br />
+                            <br />
+                            <asp:Label ID="lblEmailError" runat="server"></asp:Label>
+                        </div>
 
                         <div class="form-links">
                             <br />
@@ -50,10 +66,9 @@
             </div>
 
             <div class="col-md-4">
-
-                
             </div>
 
+            <asp:HiddenField ID="hdnEmail" runat="server" />   
 
         </div>
 

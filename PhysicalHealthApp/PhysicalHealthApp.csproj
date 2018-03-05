@@ -83,6 +83,7 @@
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="ClinicianSummary.aspx" />
+    <Content Include="ConfirmAccount.aspx" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.woff" />
@@ -145,6 +146,7 @@
     <Content Include="RegisterAsSuperUser.aspx" />
     <Content Include="RegistrationThankYou.aspx" />
     <Content Include="ResetPassword.aspx" />
+    <Content Include="ResetPasswordFromLink.aspx" />
     <Content Include="Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -178,6 +180,13 @@
     </Compile>
     <Compile Include="ClinicianSummary.aspx.designer.cs">
       <DependentUpon>ClinicianSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmAccount.aspx.cs">
+      <DependentUpon>ConfirmAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmAccount.aspx.designer.cs">
+      <DependentUpon>ConfirmAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataServices.cs" />
     <Compile Include="Default.aspx.cs">
@@ -287,6 +296,13 @@
     </Compile>
     <Compile Include="ResetPassword.aspx.designer.cs">
       <DependentUpon>ResetPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResetPasswordFromLink.aspx.cs">
+      <DependentUpon>ResetPasswordFromLink.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResetPasswordFromLink.aspx.designer.cs">
+      <DependentUpon>ResetPasswordFromLink.aspx</DependentUpon>
     </Compile>
     <Compile Include="Sidebar.ascx.cs">
       <DependentUpon>Sidebar.ascx</DependentUpon>

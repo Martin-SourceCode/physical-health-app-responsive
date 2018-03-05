@@ -24,9 +24,108 @@ namespace PhysicalHealthApp
 
                 GetTnCs();
 
+                this.divThankYou.Visible = false;
+                this.divError.Visible = false;
+                this.lblEmailError.Visible = false;
+
                 Page.MaintainScrollPositionOnPostBack = true;
             }
         }
+
+
+        private void SendEmail(string msg, string subject)
+        {
+            string msgStatus = "";
+
+            int EmailStatus = EmailHelper.SendMail(msg, subject, this.hdnEmail.Value, out msgStatus);
+
+            if (EmailStatus == 1)
+            {
+                this.divThankYou.Visible = true;
+            }
+            else
+            {
+                this.divThankYou.Visible = false;
+                this.lblEmailError.Text = msgStatus;
+                this.divError.Visible = true;
+                this.lblEmailError.Visible = true;
+            }
+
+        }
+
+
+        private void sendConfirmationEmail()
+        {
+            this.divThankYou.Visible = false;
+            this.divError.Visible = false;
+            this.lblEmailError.Visible = false;
+
+            this.lblError.Text = string.Empty;
+            this.lblError.Visible = false;
+
+            string siteURL = GetSiteURL();
+
+            string msg = "We have received a registration request to access the physical health site.<br /><br />";
+
+            msg += "Please click the link below (or right click and copy link into your browser) to confirm your account:<br />";
+
+
+            string emailLink = siteURL + "ConfirmAccount.aspx?id=";
+
+            string emailvalidationstring = GetUserValidationString();
+
+            //Build site url
+            emailLink += emailvalidationstring;
+
+            msg += "<h3>" + emailLink + "</h3></br />";
+
+            string subject = "Confirmation Email";
+
+            SendEmail(msg, subject);
+
+        }
+
+
+        private string GetSiteURL()
+        {
+            string sql = "SELECT * FROM systemsetup WHERE systemsetupid = 1;";
+            string siteURL = "";
+
+            DataSet ds = DataServices.DataSetFromSQL(sql, null);
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                try { siteURL = dt.Rows[0]["siteurl"].ToString(); } catch { }
+            }
+
+            return siteURL;
+        }
+
+        private string GetUserValidationString()
+        {
+
+            string emailvalidationstring = "";
+            string sql = "SELECT * FROM app_user WHERE emailaddress = @email;";
+            var paramList = new List<KeyValuePair<string, string>>() {
+                new KeyValuePair<string, string>("email", this.txtRegistrationEmail.Text)
+            };
+
+
+
+            DataSet ds = DataServices.DataSetFromSQL(sql, paramList);
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count > 0)
+            {
+                try { emailvalidationstring = dt.Rows[0]["emailvalidationstring"].ToString(); } catch { }
+
+
+            }
+
+
+            return emailvalidationstring;
+
+        }
+
 
         private void GetTnCs()
         {
@@ -167,6 +266,11 @@ namespace PhysicalHealthApp
                     new KeyValuePair<string, string>("acceptedtermsandconditions", acceptedtermsandconditions)
                 };
             DataServices.executeSQLStatement(sql, paramListSave);
+
+            this.hdnEmail.Value = this.txtRegistrationEmail.Text;
+
+            sendConfirmationEmail();
+
 
             Response.Redirect("RegistrationThankYou.aspx?id=patient");
 

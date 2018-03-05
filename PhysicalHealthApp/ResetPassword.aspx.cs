@@ -62,10 +62,10 @@ namespace PhysicalHealthApp
             if (ValidateUser(out emailvalidationstring))
             {
                 //Build site url
-                siteURL += emailvalidationstring;
+                emailLink += emailvalidationstring;
 
-                msg += "<h3>" + siteURL + "</h3></br />";
-               
+                msg += "<h3>" + emailLink + "</h3></br />";
+
                 SendEmail(msg);
 
             }
@@ -109,7 +109,18 @@ namespace PhysicalHealthApp
             DataTable dt = ds.Tables[0];
             if (dt.Rows.Count > 0)
             {
-                try { emailvalidationstring = dt.Rows[0]["emailvalidationstring"].ToString(); } catch { }
+
+
+                string newguid = System.Convert.ToString(System.Guid.NewGuid());
+                string sqlUpdate = "UPDATE app_user SET emailresetstring = @newguid WHERE emailaddress = @email;";
+                var paramListUpdate = new List<KeyValuePair<string, string>>() {
+                    new KeyValuePair<string, string>("email", this.txtEmail.Text),
+                    new KeyValuePair<string, string>("newguid", newguid)
+                };
+
+                DataServices.executeSQLStatement(sqlUpdate, paramListUpdate);
+
+                emailvalidationstring = newguid;
 
                 return true;
             }

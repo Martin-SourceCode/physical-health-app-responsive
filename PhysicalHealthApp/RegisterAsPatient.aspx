@@ -132,7 +132,25 @@
                             I accept the terms and conditions
                         </asp:Panel>
 
-                        <asp:Button ID="btnRegister" runat="server" CssClass="btn btn-lg btn-primary btn-block" Text="Register" OnClick="btnRegister_Click" />                        
+                        <asp:Button ID="btnRegister" runat="server" CssClass="btn btn-lg btn-primary btn-block" Text="Register" OnClick="btnRegister_Click" />      
+                        
+                        <br />
+
+                        <div id="divThankYou" runat="server" class="alert alert-success">
+                            <h3>Thank you</h3>
+                            Confirmation Email Sent Successfully
+                        </div>
+
+                        <div id="divError" runat="server" class="alert alert-danger">
+                            <h3>Error</h3>
+                            Sorry, something went wrong sending the email.
+                            <br />
+                            <br />
+                            Details:
+                            <br />
+                            <br />
+                            <asp:Label ID="lblEmailError" runat="server"></asp:Label>
+                        </div>
 
                     </div>
 
@@ -144,6 +162,7 @@
 
             <div class="col-md-4"></div>
 
+             <asp:HiddenField ID="hdnEmail" runat="server" />   
 
         </div>
 
