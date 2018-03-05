@@ -7639,3 +7639,7 @@ table.tablesorter thead {
     -khtml-border-radius: 5px; /* Linux browsers */
     border-radius: 5px; /* CSS3 compatible browsers */
 }
+
+td a {
+    text-decoration: none !important;
+}

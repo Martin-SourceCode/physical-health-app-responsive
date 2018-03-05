@@ -44,7 +44,7 @@ namespace PhysicalHealthApp
                 this.lblEmailError.Visible = false;
 
                 string msgStatus = "";
-                
+
             }
         }
 
@@ -221,7 +221,6 @@ namespace PhysicalHealthApp
                     userid = dt.Rows[0]["userid"].ToString();
                 }
                 catch { }
-
                 Session["userID"] = userid;
 
                 string emailconfirmed = "False";
@@ -231,13 +230,44 @@ namespace PhysicalHealthApp
                 }
                 catch { }
 
+                string userFullName = ""; 
+                try
+                {
+                    userFullName = dt.Rows[0]["firstname"].ToString() + " " + dt.Rows[0]["lastname"].ToString();
+                }
+                catch { }
+                Session["userFullName"] = userFullName;
+
+                string userType = "";
+                try
+                {
+                    userType = dt.Rows[0]["usertype"].ToString();
+                }
+                catch
+                {
+                    //Response.Redirect("Login.aspx");
+                }
+                Session["userType"] = userType;
+
+                string matchedclinicianid = "";
+                try
+                {
+                    matchedclinicianid = dt.Rows[0]["matchedclinicianid"].ToString();
+                }
+                catch
+                {
+                    //Response.Redirect("Login.aspx");
+                }
+                Session["matchedclinicianid"] = matchedclinicianid;
+
+
                 this.hdnEmail.Value = this.txtEmail.Text;
 
                 if (emailconfirmed == "False")
                 {
                     this.lblError.Text = "Your account has been created but you have not confirmed your email address yet.<br /><br />Please check your spam folder for the email containing the link to confirm your account";
                     this.btnResendValidationEmail.Visible = true;
-                    this.lblError.Visible = true;                    
+                    this.lblError.Visible = true;
                     return;
                 }
 
@@ -268,7 +298,7 @@ namespace PhysicalHealthApp
             else
             {
 
-               
+
 
 
 

@@ -84,6 +84,7 @@
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="ClinicianSummary.aspx" />
     <Content Include="ConfirmAccount.aspx" />
+    <Content Include="CreateNewPatientResult.aspx" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.woff" />
@@ -169,6 +170,7 @@
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="NavBar.ascx" />
     <Content Include="Sidebar.ascx" />
+    <Content Include="Unauthorised.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -187,6 +189,13 @@
     </Compile>
     <Compile Include="ConfirmAccount.aspx.designer.cs">
       <DependentUpon>ConfirmAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateNewPatientResult.aspx.cs">
+      <DependentUpon>CreateNewPatientResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreateNewPatientResult.aspx.designer.cs">
+      <DependentUpon>CreateNewPatientResult.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataServices.cs" />
     <Compile Include="Default.aspx.cs">
@@ -317,6 +326,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Unauthorised.aspx.cs">
+      <DependentUpon>Unauthorised.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Unauthorised.aspx.designer.cs">
+      <DependentUpon>Unauthorised.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

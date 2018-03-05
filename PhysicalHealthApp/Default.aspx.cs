@@ -15,17 +15,35 @@ namespace PhysicalHealthApp
         {
 
 
-            string add = "update Test set id = 1 where id = 11;";
-            DataServices.executeSQLStatement(add, null);
+            DataTable dt = null;
+            try
+            {
+                dt = (Session["UserDetailsSxn"]) as DataTable;
+            }
+            catch
+            {
+                dt = null;
+            }
 
-            string sql = "SELECT * FROM Test ";
-            
+            string userType = "";
+            try
+            {
+                userType = Session["userType"].ToString().ToLower();
+            } catch { }
 
-            DataSet ds = DataServices.DataSetFromSQL(sql);
-            DataTable dt = ds.Tables[0];
+            switch(userType)
+            {
+                case "patient":
+                    Response.Redirect("PatientSummary.aspx?id=" + Session["userID"].ToString());
+                    break;
+                case "clinician":
+                    Response.Redirect("ClinicianSummary.aspx?id=" + Session["userID"].ToString());
+                    break;
+                case "super user":
+                    Response.Redirect("AdminSummary.aspx?id=" + Session["userID"].ToString());
+                    break;
+            }
 
-            this.dgTest.DataSource = dt;
-            this.dgTest.DataBind();
 
         }
     }

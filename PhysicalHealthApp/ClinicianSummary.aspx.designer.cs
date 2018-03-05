@@ -49,12 +49,21 @@ namespace PhysicalHealthApp {
         protected global::System.Web.UI.WebControls.Label lblOrganisation;
         
         /// <summary>
-        /// ddlTestType control.
+        /// hdnClinicianID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTestType;
+        protected global::System.Web.UI.WebControls.HiddenField hdnClinicianID;
+        
+        /// <summary>
+        /// dgMyPatients control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid dgMyPatients;
     }
 }

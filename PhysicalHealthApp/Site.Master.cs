@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,6 +12,23 @@ namespace PhysicalHealthApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DataTable dt = null;
+            try
+            {
+                dt = (Session["UserDetailsSxn"]) as DataTable;
+            }
+            catch
+            {
+                dt = null;
+            }
+
+
+            if (dt == null)
+            {
+                Response.Redirect("Logout.aspx");
+            }
+
+         
 
         }
     }

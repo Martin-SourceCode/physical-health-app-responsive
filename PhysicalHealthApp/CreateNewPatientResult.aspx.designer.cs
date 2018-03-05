@@ -10,7 +10,7 @@
 namespace PhysicalHealthApp {
     
     
-    public partial class PatientSummary {
+    public partial class CreateNewPatientResult {
         
         /// <summary>
         /// lblSummaryType control.
@@ -76,21 +76,48 @@ namespace PhysicalHealthApp {
         protected global::System.Web.UI.WebControls.HiddenField hdnMatchedclinicianid;
         
         /// <summary>
-        /// btnCreateNewTest control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCreateNewTest;
+        protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// ddlTestType control.
+        /// fgMatchedOrganisation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTestType;
+        protected global::System.Web.UI.WebControls.Panel fgMatchedOrganisation;
+        
+        /// <summary>
+        /// lblTestTypeID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTestTypeID;
+        
+        /// <summary>
+        /// errTestTypeID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label errTestTypeID;
+        
+        /// <summary>
+        /// ddlTestTypeID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTestTypeID;
     }
 }

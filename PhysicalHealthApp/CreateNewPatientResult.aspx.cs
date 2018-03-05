@@ -8,11 +8,11 @@ using System.Web.UI.WebControls;
 
 namespace PhysicalHealthApp
 {
-    public partial class PatientSummary : System.Web.UI.Page
+    public partial class CreateNewPatientResult : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 string id = "";
                 try
@@ -32,16 +32,15 @@ namespace PhysicalHealthApp
                 switch (Session["userType"].ToString().ToLower())
                 {
                     case "patient":
-                        this.lblSummaryType.Text = "My Summary";
-                        this.btnCreateNewTest.Visible = false;
-                        this.btnBack.Visible = false;
-                        if (id != Session["userID"].ToString())
-                        {
-                            Response.Redirect("Unauthorised.aspx");
-                        }
+                        Response.Redirect("Unauthorised.aspx");
+                        //this.lblSummaryType.Text = "My Summary";
+                        //if (id != Session["userID"].ToString())
+                        //{
+                        //    Response.Redirect("Unauthorised.aspx");
+                        //}
                         break;
                     case "clinician":
-                        this.lblSummaryType.Text = "Patient Summary";
+                        this.lblSummaryType.Text = "New Result";
                         if (Session["userID"].ToString() != this.hdnMatchedclinicianid.Value)
                         {
                             Response.Redirect("Unauthorised.aspx");
@@ -52,7 +51,7 @@ namespace PhysicalHealthApp
                         break;
                 }
 
-               
+
 
             }
         }
@@ -107,7 +106,8 @@ namespace PhysicalHealthApp
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Default.aspx");
+            Response.Redirect("PatientSummary.aspx?id=" + this.hdnPatientID.Value);
         }
+
     }
 }

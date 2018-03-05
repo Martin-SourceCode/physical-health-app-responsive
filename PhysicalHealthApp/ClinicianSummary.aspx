@@ -16,10 +16,10 @@
             <div class="col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">
+                        <h3 class="panel-title" style="font-weight: bold; font-size: 2em;">
                             <asp:Label ID="lblClinianName" runat="server"></asp:Label></h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" style="background-color: #2a9fd6; color: azure;">
                         <div class="row">
                             <div class="col-md-8">
 
@@ -27,6 +27,7 @@
                                     <asp:Label ID="lblGMC" runat="server"></asp:Label></h4>
                                 <h4 class="panel-title">Organisation: 
                                     <asp:Label ID="lblOrganisation" runat="server"></asp:Label></h4>
+                                <asp:HiddenField ID="hdnClinicianID" runat="server" />
                             </div>
                             <div class="col-md-4">
                             </div>
@@ -64,39 +65,34 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                                Select Test:
-                                <asp:DropDownList ID="ddlTestType" runat="server" CssClass="form-control input-lg"></asp:DropDownList>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h3>Chart</h3>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Subject</th>
-                                            <th>Count</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>One
-                                            </td>
-                                            <td>1
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Two
-                                            </td>
-                                            <td>2
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <asp:DataGrid ID="dgMyPatients" runat="server" CssClass="table table-striped" AutoGenerateColumns="False">
+                                    <Columns>
+                                        <asp:TemplateColumn HeaderText="Patient">
+                                            <EditItemTemplate>
+                                                <asp:TextBox runat="server"></asp:TextBox>
+                                            </EditItemTemplate>
+                                            <ItemTemplate>
+                                                <a href='<%# DataBinder.Eval(Container, "DataItem.userid", "PatientSummary.aspx?id={0}") %>'>
+                                                    <div>
+                                                        <h3>
+                                                            <asp:Label ID="lblFullName" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.firstname") %>'></asp:Label>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.lastname") %>'></asp:Label>
+                                                        </h3>
+                                                        NHS Number:
+                                                        <asp:Label ID="lblNHSNo" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.nhsnumber") %>'></asp:Label>
+                                                        <br />
+                                                        Date of Birth:
+                                                        <asp:Label ID="lblDoB" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.dateofbirth", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                    </div>
+                                                </a>
+                                            </ItemTemplate>
+                                        </asp:TemplateColumn>
+
+                                    </Columns>
+
+
+
+                                </asp:DataGrid>
                             </div>
                         </div>
                     </div>
