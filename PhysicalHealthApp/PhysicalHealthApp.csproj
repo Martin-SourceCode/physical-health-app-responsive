@@ -150,6 +150,7 @@
     <Content Include="ResetPassword.aspx" />
     <Content Include="ResetPasswordFromLink.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
