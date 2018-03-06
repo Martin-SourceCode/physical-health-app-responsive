@@ -6,14 +6,14 @@ This contains the code developed by Interneuron CIC for NHS Digital and Janssen
 Deployment Instructions
 -----------------------
 
---Create database
+Create database
 Create a health_appstore database in PostgresSQL 9.6 or greater
 
 --Run Database Object Creation Script
 Run the health_appstore.sql file in the health_appstore directory
 
 
---Edit Web.Config
+Edit Web.Config
 Update connection string in web.config to reflect your postgressql settings
 
 --Deploy Website to IIS / Azure
@@ -21,7 +21,7 @@ Deploy Solution to IIS / Azure
 
 
 
---Update System Settings
+Update System Settings
 ------------------------
 UPDATE public.systemsetup
 SET 
@@ -38,15 +38,16 @@ patienttermsandconditions = 'patienttermsandconditions'
 WHERE systemsetupid = 1
 
 
---Create Organisations
+Create Organisations
 ----------------------
 INSERT INTO public.app_organisation(organisationname) VALUES ('My Organisation Name')
 
 
---Create Test Types
+Create Test Types
+-------------------
 INSERT INTO public.app_testtype(testtypename, lowerreferencerange, upperreferencerange, unitstext) VALUES ('Fasting Glucose', 3.9 , 5.5, 'mg/dl');
 
---Register Super Users
+Register Super Users
 ----------------------
 
 Access siteurl//RegisterAsSuperUser.aspx
