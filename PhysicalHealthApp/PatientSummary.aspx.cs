@@ -52,11 +52,105 @@ namespace PhysicalHealthApp
                         break;
                 }
 
-               
+                BindDropDownList(this.ddltesttypeid, "SELECT * FROM app_testtype ORDER BY testtypename", "testtypeid", "testtypename", 0);
+
+                BindMyResults();
+                BindMyNewResults();
 
             }
         }
 
+        private void BindMyResults()
+        {
+            string sql = "SELECT * FROM app_test WHERE testtypeid = CAST(@testtypeid AS INT);";
+            var paramList = new List<KeyValuePair<string, string>>() {
+                new KeyValuePair<string, string>("testtypeid", this.ddltesttypeid.SelectedValue)
+            };
+
+            DataSet ds = DataServices.DataSetFromSQL(sql, paramList);
+            DataTable dt = ds.Tables[0];
+
+            this.dgAllMyResults.DataSource = dt;
+            this.dgAllMyResults.DataBind();
+
+            this.lblTestType.Text = this.ddltesttypeid.SelectedItem.Text;
+            this.lblResultCount.Text = dt.Rows.Count.ToString();
+        }
+
+
+        private void BindMyNewResults()
+        {
+            string sql = "SELECT a.testid, a.testnumericresult, b.testtypename, a._createddate FROM app_test a INNER JOIN app_testtype b ON a.testtypeid = b.testtypeid WHERE COALESCE(patienthasviewed,false) = false ORDER BY a._createddate DESC;";
+            var paramList = new List<KeyValuePair<string, string>>() {
+                new KeyValuePair<string, string>("testtypeid", this.ddltesttypeid.SelectedValue)
+            };
+
+            DataSet ds = DataServices.DataSetFromSQL(sql, paramList);
+            DataTable dt = ds.Tables[0];
+
+            this.dgMyNewResults.DataSource = dt;
+            this.dgMyNewResults.DataBind();
+
+        }
+
+        //Drop Down Lists
+        private void BindDropDownList(DropDownList ddl, string sql, string valueField, string displayField, int addPleaseSelect)
+        {
+            DataSet ds = DataServices.DataSetFromSQL(sql);
+            ddl.DataSource = ds;
+            ddl.DataValueField = valueField;
+            ddl.DataTextField = displayField;
+            ddl.DataBind();
+
+            if (addPleaseSelect == 1)
+            {
+                ListItem[] items = new ListItem[1];
+                items[0] = new ListItem("Please select ...", "0");
+                ddl.Items.Insert(0, items[0]);
+            }
+        }
+
+        private void SetDDLSource(DropDownList ddl, string val)
+        {
+            if (val.Length > 0)
+            {
+                int idx = 9999;
+
+                try
+                {
+                    idx = ddl.Items.IndexOf(ddl.Items.FindByValue(val));
+                }
+                catch
+                {
+                    idx = 9999;
+                }
+
+                if (idx == 9999 || idx < 0)
+                {
+                    ListItem[] items = new ListItem[1];
+                    items[0] = new ListItem(val + " (old value)", val);
+                    ddl.Items.Insert(1, items[0]);
+                }
+            }
+
+            ddl.SelectedIndex = ddl.Items.IndexOf(ddl.Items.FindByValue(val));
+        }
+
+        //RadioButtonList
+        private void BindRadioList(RadioButtonList rad, string sql, string valueField, string displayField)
+        {
+            DataSet ds = DataServices.DataSetFromSQL(sql);
+            rad.DataSource = ds;
+            rad.DataValueField = valueField;
+            rad.DataTextField = displayField;
+            rad.DataBind();
+
+        }
+
+        private void SetRadioSource(RadioButtonList rad, string val)
+        {
+            rad.SelectedIndex = rad.Items.IndexOf(rad.Items.FindByValue(val));
+        }
 
 
         private void GetPatientData(string id)
@@ -108,6 +202,11 @@ namespace PhysicalHealthApp
         protected void btnBack_Click(object sender, EventArgs e)
         {
             Response.Redirect("Default.aspx");
+        }
+
+        protected void ddltesttypeid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindMyResults();
         }
     }
 }

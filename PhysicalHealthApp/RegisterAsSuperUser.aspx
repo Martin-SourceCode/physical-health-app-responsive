@@ -66,7 +66,10 @@
                             <asp:TextBox ID="txtConfirmPassword" runat="server" placeholder="Confirm Password" CssClass="form-control input-lg" TextMode="Password"></asp:TextBox>
                         </asp:Panel>
 
+
                         <hr />
+                        
+                        <!--                        
                         <h3>If you want to register as a clinician please complete the fields below:</h3>
                         <asp:Panel ID="fgGMCCode" runat="server" class="form-group">
                             <label class="control-label" for="txtGMCCode">Please enter your GMC Number</label>
@@ -80,8 +83,9 @@
                             <asp:DropDownList ID="ddlMatchedOrganisation" runat="server" CssClass="form-control input-lg">
                             </asp:DropDownList>
                         </asp:Panel>
-
                         <hr />
+                        -->
+                        
 
                         <asp:Button ID="btnRegister" runat="server" CssClass="btn btn-lg btn-primary btn-block" Text="Register" OnClick="btnRegister_Click" />
                         

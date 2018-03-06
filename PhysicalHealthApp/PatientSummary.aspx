@@ -9,18 +9,18 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>
-                    <asp:Label ID="lblSummaryType" runat="server" Text="My Summary"></asp:Label><asp:Button ID="btnBack" runat="server" CssClass="btn btn-primary pull-right" Text="Back" OnClick="btnBack_Click"/></h1>
+                    <asp:Label ID="lblSummaryType" runat="server" Text="My Summary"></asp:Label><asp:Button ID="btnBack" runat="server" CssClass="btn btn-primary pull-right" Text="Back" OnClick="btnBack_Click" /></h1>
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-primary" >
+                <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title"style="font-weight: bold; font-size: 2em;">
+                        <h3 class="panel-title" style="font-weight: bold; font-size: 2em;">
                             <asp:Label ID="lblPatientName" runat="server"></asp:Label></h3>
                     </div>
-                    <div class="panel-body" style="background-color: #2a9fd6; color:azure;">
+                    <div class="panel-body" style="background-color: #2a9fd6; color: azure;">
                         <div class="row">
                             <div class="col-md-8">
                                 <h4 class="panel-title">NHS:
@@ -44,7 +44,7 @@
             <div class="col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>&nbsp;New Test Results</h3>                         
+                        <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i>&nbsp;New Test Results</h3>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -52,8 +52,26 @@
                                 <asp:Button ID="btnCreateNewTest" runat="server" CssClass="btn btn-primary pull-right" Text="Record New Result" OnClick="btnCreateNewTest_Click" />
                             </div>
                         </div>
+                        <br />
                         <div class="row">
                             <div class="col-md-12">
+                                 <asp:DataGrid ID="dgMyNewResults" runat="server" CssClass="table table-striped table-bordered" AutoGenerateColumns="False">
+
+                                    <Columns>
+                                        <asp:BoundColumn DataField="_createddate" DataFormatString="{0:D}" HeaderText="Date">
+                                            <HeaderStyle Width="20%" />
+                                        </asp:BoundColumn>
+                                        <asp:BoundColumn DataField="testtypename" HeaderText="Result">
+                                            <HeaderStyle Width="70%" />
+                                        </asp:BoundColumn>
+                                        <asp:HyperLinkColumn DataNavigateUrlField="testid" DataNavigateUrlFormatString="TestView.aspx?id={0}" Text="View">
+                                            <HeaderStyle Width="10%" />
+                                        </asp:HyperLinkColumn>
+                                    </Columns>
+
+
+
+                                </asp:DataGrid>
                             </div>
                         </div>
                     </div>
@@ -73,39 +91,41 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                                Select Test:
-                                <asp:DropDownList ID="ddlTestType" runat="server" CssClass="form-control input-lg"></asp:DropDownList>
+                                <asp:Panel ID="fgtesttypeid" runat="server" class="form-group">
+                                    <asp:Label ID="lbltesttypeid" runat="server" CssClass="control-label" for="ddltesttypeid" Text="Select a test from the list below" Font-Bold="true"></asp:Label>
+                                    <asp:Label ID="errtesttypeid" runat="server"></asp:Label>
+                                    <asp:DropDownList ID="ddltesttypeid" runat="server" CssClass="form-control input-lg" AutoPostBack="true" OnSelectedIndexChanged="ddltesttypeid_SelectedIndexChanged">
+                                    </asp:DropDownList>
+                                </asp:Panel>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <h3>Chart</h3>
+                                <span style="font-size: 1.8em;"><asp:label ID="lblTestType" runat="server"></asp:label>  Results (<asp:label ID="lblResultCount" runat="server"></asp:label>)</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Subject</th>
-                                            <th>Count</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>One
-                                            </td>
-                                            <td>1
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Two
-                                            </td>
-                                            <td>2
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <asp:DataGrid ID="dgAllMyResults" runat="server" CssClass="table table-striped table-bordered" AutoGenerateColumns="False">
+
+                                    <Columns>
+                                        <asp:BoundColumn DataField="_createddate" DataFormatString="{0:D}" HeaderText="Date">
+                                            <HeaderStyle Width="20%" />
+                                        </asp:BoundColumn>
+                                        <asp:BoundColumn DataField="testnumericresult" HeaderText="Result">
+                                            <HeaderStyle Width="35%" />
+                                        </asp:BoundColumn>
+                                        <asp:BoundColumn DataField="unitstext" HeaderText="Units">
+                                            <HeaderStyle Width="35%" />
+                                        </asp:BoundColumn>
+                                        <asp:HyperLinkColumn DataNavigateUrlField="testid" DataNavigateUrlFormatString="TestView.aspx?id={0}" Text="View">
+                                            <HeaderStyle Width="10%" />
+                                        </asp:HyperLinkColumn>
+                                    </Columns>
+
+
+
+                                </asp:DataGrid>
                             </div>
                         </div>
                     </div>

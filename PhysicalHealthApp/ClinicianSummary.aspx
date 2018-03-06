@@ -65,7 +65,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <asp:DataGrid ID="dgMyPatients" runat="server" CssClass="table table-striped" AutoGenerateColumns="False">
+                                <asp:DataGrid ID="dgMyPatients" runat="server" CssClass="table table-striped table-bordered" AutoGenerateColumns="False" ShowHeader="false">
                                     <Columns>
                                         <asp:TemplateColumn HeaderText="Patient">
                                             <EditItemTemplate>
@@ -74,10 +74,10 @@
                                             <ItemTemplate>
                                                 <a href='<%# DataBinder.Eval(Container, "DataItem.userid", "PatientSummary.aspx?id={0}") %>'>
                                                     <div>
-                                                        <h3>
+                                                        <span style="font-size: 1.8em;">
                                                             <asp:Label ID="lblFullName" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.firstname") %>'></asp:Label>
                                                             <asp:Label ID="Label1" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.lastname") %>'></asp:Label>
-                                                        </h3>
+                                                        </span><br />
                                                         NHS Number:
                                                         <asp:Label ID="lblNHSNo" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.nhsnumber") %>'></asp:Label>
                                                         <br />

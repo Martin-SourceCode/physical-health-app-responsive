@@ -78,6 +78,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminSummary.aspx" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
@@ -178,6 +179,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminSummary.aspx.cs">
+      <DependentUpon>AdminSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminSummary.aspx.designer.cs">
+      <DependentUpon>AdminSummary.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ClinicianSummary.aspx.cs">
       <DependentUpon>ClinicianSummary.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
