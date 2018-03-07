@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>
-                    <asp:Label ID="lblSummaryType" runat="server" Text="View New Result"></asp:Label>
+                    <asp:Label ID="lblSummaryType" runat="server" Text="View Result"></asp:Label>
                     <asp:Button ID="btnBack" runat="server" CssClass="btn btn-primary pull-right" Text="Back" OnClick="btnBack_Click" />
                 </h1>
             </div>

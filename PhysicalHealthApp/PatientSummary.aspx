@@ -110,7 +110,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
-                                <asp:Chart ID="Chart1" runat="server" BackColor="64, 64, 64" Width="350px">
+                                <asp:Chart ID="Chart1" runat="server" BackColor="64, 64, 64" Height="210px">
                                 <Series>
                                     <asp:Series Name="Series1"></asp:Series>
                                 </Series>

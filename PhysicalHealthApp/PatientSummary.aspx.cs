@@ -41,7 +41,7 @@ namespace PhysicalHealthApp
                         }
                         break;
                     case "clinician":
-                        this.lblSummaryType.Text = "Patient Summary";
+                        this.lblSummaryType.Text = "Patient";
                         if (Session["userID"].ToString() != this.hdnMatchedclinicianid.Value)
                         {
                             Response.Redirect("Unauthorised.aspx");
