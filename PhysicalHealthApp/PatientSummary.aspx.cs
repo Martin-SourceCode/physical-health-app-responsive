@@ -81,8 +81,8 @@ namespace PhysicalHealthApp
             //Give two columns of data to Y-axle 
             Chart1.Series[0].YValueMembers = "testnumericresult";
             Chart1.Series[0].XValueMember = "_createddate";
+            Chart1.ChartAreas[0].AxisX.LabelStyle.Enabled = false;
 
-            
 
             Chart1.DataBind();
 
