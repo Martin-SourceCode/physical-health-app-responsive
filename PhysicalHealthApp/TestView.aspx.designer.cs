@@ -10,7 +10,7 @@
 namespace PhysicalHealthApp {
     
     
-    public partial class AdminSummary {
+    public partial class TestView {
         
         /// <summary>
         /// lblSummaryType control.
@@ -22,129 +22,138 @@ namespace PhysicalHealthApp {
         protected global::System.Web.UI.WebControls.Label lblSummaryType;
         
         /// <summary>
-        /// fgMatchedOrganisation control.
+        /// btnBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel fgMatchedOrganisation;
+        protected global::System.Web.UI.WebControls.Button btnBack;
         
         /// <summary>
-        /// lblMatchedOrganisation control.
+        /// lblPatientName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMatchedOrganisation;
+        protected global::System.Web.UI.WebControls.Label lblPatientName;
         
         /// <summary>
-        /// errMatchedOrganisation control.
+        /// lblNHS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errMatchedOrganisation;
+        protected global::System.Web.UI.WebControls.Label lblNHS;
         
         /// <summary>
-        /// ddlMatchedOrganisation control.
+        /// lblDoB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMatchedOrganisation;
+        protected global::System.Web.UI.WebControls.Label lblDoB;
         
         /// <summary>
-        /// lblClinianName control.
+        /// hdnPatientID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClinianName;
+        protected global::System.Web.UI.WebControls.HiddenField hdnPatientID;
         
         /// <summary>
-        /// lblGMC control.
+        /// hdnMatchedclinicianid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGMC;
+        protected global::System.Web.UI.WebControls.HiddenField hdnMatchedclinicianid;
         
         /// <summary>
-        /// lblOrganisation control.
+        /// hdnUserId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOrganisation;
+        protected global::System.Web.UI.WebControls.HiddenField hdnUserId;
         
         /// <summary>
-        /// hdnClinicianID control.
+        /// hdnTestId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnClinicianID;
+        protected global::System.Web.UI.WebControls.HiddenField hdnTestId;
         
         /// <summary>
-        /// lblNewRequestCount control.
+        /// lbltesttypename control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNewRequestCount;
+        protected global::System.Web.UI.WebControls.Label lbltesttypename;
         
         /// <summary>
-        /// dgMyUnauthorisedPatients control.
+        /// lbltestnumericresult control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid dgMyUnauthorisedPatients;
+        protected global::System.Web.UI.WebControls.Label lbltestnumericresult;
         
         /// <summary>
-        /// lbRejectedRequestCount control.
+        /// lblunitstext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbRejectedRequestCount;
+        protected global::System.Web.UI.WebControls.Label lblunitstext;
         
         /// <summary>
-        /// dgMyRejectedRequests control.
+        /// lbllowerreferencerange control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid dgMyRejectedRequests;
+        protected global::System.Web.UI.WebControls.Label lbllowerreferencerange;
         
         /// <summary>
-        /// lblAllPatientCount control.
+        /// lblupperreferencerange control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAllPatientCount;
+        protected global::System.Web.UI.WebControls.Label lblupperreferencerange;
         
         /// <summary>
-        /// dgMyPatients control.
+        /// lblclinicianmessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid dgMyPatients;
+        protected global::System.Web.UI.WebControls.Label lblclinicianmessage;
+        
+        /// <summary>
+        /// lblnexttestdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblnexttestdate;
     }
 }

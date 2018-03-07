@@ -58,6 +58,33 @@ namespace PhysicalHealthApp {
         protected global::System.Web.UI.WebControls.HiddenField hdnClinicianID;
         
         /// <summary>
+        /// lblNewRequestCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNewRequestCount;
+        
+        /// <summary>
+        /// dgMyUnauthorisedPatients control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid dgMyUnauthorisedPatients;
+        
+        /// <summary>
+        /// lblAllPatientCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAllPatientCount;
+        
+        /// <summary>
         /// dgMyPatients control.
         /// </summary>
         /// <remarks>
@@ -65,5 +92,23 @@ namespace PhysicalHealthApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataGrid dgMyPatients;
+        
+        /// <summary>
+        /// lbRejectedRequestCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbRejectedRequestCount;
+        
+        /// <summary>
+        /// dgMyRejectedRequests control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid dgMyRejectedRequests;
     }
 }

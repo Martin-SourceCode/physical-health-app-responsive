@@ -60,6 +60,7 @@
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -79,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminSummary.aspx" />
+    <Content Include="Authorise.aspx" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
@@ -152,6 +154,7 @@
     <Content Include="ResetPasswordFromLink.aspx" />
     <Content Include="Site.Master" />
     <Content Include="README.md" />
+    <None Include="Properties\PublishProfiles\PhysicalHealthApp - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -173,6 +176,7 @@
     <Content Include="js\jquery-1.10.2.min.js" />
     <Content Include="NavBar.ascx" />
     <Content Include="Sidebar.ascx" />
+    <Content Include="TestView.aspx" />
     <Content Include="Unauthorised.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -185,6 +189,13 @@
     </Compile>
     <Compile Include="AdminSummary.aspx.designer.cs">
       <DependentUpon>AdminSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Authorise.aspx.cs">
+      <DependentUpon>Authorise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Authorise.aspx.designer.cs">
+      <DependentUpon>Authorise.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClinicianSummary.aspx.cs">
       <DependentUpon>ClinicianSummary.aspx</DependentUpon>
@@ -336,6 +347,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TestView.aspx.cs">
+      <DependentUpon>TestView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestView.aspx.designer.cs">
+      <DependentUpon>TestView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Unauthorised.aspx.cs">
       <DependentUpon>Unauthorised.aspx</DependentUpon>

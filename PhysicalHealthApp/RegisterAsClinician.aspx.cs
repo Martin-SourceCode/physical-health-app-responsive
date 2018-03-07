@@ -288,7 +288,7 @@ namespace PhysicalHealthApp
 
             string sql = "SELECT * from app_user where emailaddress = @email;";
             var paramList = new List<KeyValuePair<string, string>>() {
-                new KeyValuePair<string, string>("email", this.txtRegistrationEmail.Text),
+                new KeyValuePair<string, string>("email", this.txtRegistrationEmail.Text)
             };
 
             DataSet ds = DataServices.DataSetFromSQL(sql, paramList);

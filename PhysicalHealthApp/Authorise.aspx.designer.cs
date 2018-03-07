@@ -10,7 +10,7 @@
 namespace PhysicalHealthApp {
     
     
-    public partial class AdminSummary {
+    public partial class Authorise {
         
         /// <summary>
         /// lblSummaryType control.
@@ -22,129 +22,138 @@ namespace PhysicalHealthApp {
         protected global::System.Web.UI.WebControls.Label lblSummaryType;
         
         /// <summary>
-        /// fgMatchedOrganisation control.
+        /// btnBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel fgMatchedOrganisation;
+        protected global::System.Web.UI.WebControls.Button btnBack;
         
         /// <summary>
-        /// lblMatchedOrganisation control.
+        /// lblUserFullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMatchedOrganisation;
+        protected global::System.Web.UI.WebControls.Label lblUserFullName;
         
         /// <summary>
-        /// errMatchedOrganisation control.
+        /// lblUserType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errMatchedOrganisation;
+        protected global::System.Web.UI.WebControls.Label lblUserType;
         
         /// <summary>
-        /// ddlMatchedOrganisation control.
+        /// lblUniqueIDName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMatchedOrganisation;
+        protected global::System.Web.UI.WebControls.Label lblUniqueIDName;
         
         /// <summary>
-        /// lblClinianName control.
+        /// lblUniqueID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblClinianName;
+        protected global::System.Web.UI.WebControls.Label lblUniqueID;
         
         /// <summary>
-        /// lblGMC control.
+        /// h4DoB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGMC;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl h4DoB;
         
         /// <summary>
-        /// lblOrganisation control.
+        /// lblDoB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOrganisation;
+        protected global::System.Web.UI.WebControls.Label lblDoB;
         
         /// <summary>
-        /// hdnClinicianID control.
+        /// hdnSelectedUserID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnClinicianID;
+        protected global::System.Web.UI.WebControls.HiddenField hdnSelectedUserID;
         
         /// <summary>
-        /// lblNewRequestCount control.
+        /// hdnMatchedclinicianid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNewRequestCount;
+        protected global::System.Web.UI.WebControls.HiddenField hdnMatchedclinicianid;
         
         /// <summary>
-        /// dgMyUnauthorisedPatients control.
+        /// hdnUserId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid dgMyUnauthorisedPatients;
+        protected global::System.Web.UI.WebControls.HiddenField hdnUserId;
         
         /// <summary>
-        /// lbRejectedRequestCount control.
+        /// pnlCurrentStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbRejectedRequestCount;
+        protected global::System.Web.UI.WebControls.Panel pnlCurrentStatus;
         
         /// <summary>
-        /// dgMyRejectedRequests control.
+        /// lblCurrentStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid dgMyRejectedRequests;
+        protected global::System.Web.UI.WebControls.Label lblCurrentStatus;
         
         /// <summary>
-        /// lblAllPatientCount control.
+        /// btnAuthorise control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAllPatientCount;
+        protected global::System.Web.UI.WebControls.Button btnAuthorise;
         
         /// <summary>
-        /// dgMyPatients control.
+        /// btnReject control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid dgMyPatients;
+        protected global::System.Web.UI.WebControls.Button btnReject;
+        
+        /// <summary>
+        /// hdnEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnEmail;
     }
 }

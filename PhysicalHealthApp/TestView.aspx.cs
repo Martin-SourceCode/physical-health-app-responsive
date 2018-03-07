@@ -8,11 +8,11 @@ using System.Web.UI.WebControls;
 
 namespace PhysicalHealthApp
 {
-    public partial class PatientSummary : System.Web.UI.Page
+    public partial class TestView : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 string id = "";
                 try
@@ -25,23 +25,38 @@ namespace PhysicalHealthApp
                     return;
                 }
 
-                this.hdnPatientID.Value = id;
+                this.hdnTestId.Value = id;
 
-                GetPatientData(id);
+                GetTestData(id);
+
+                //this.lblError.Visible = false;
+
 
                 switch (Session["userType"].ToString().ToLower())
                 {
                     case "patient":
-                        this.lblSummaryType.Text = "My Summary";
-                        this.btnCreateNewTest.Visible = false;
-                        this.btnBack.Visible = false;
-                        if (id != Session["userID"].ToString())
+                        //Response.Redirect("Unauthorised.aspx");
+                        //this.lblSummaryType.Text = "My Summary";
+
+
+
+                        if (this.hdnPatientID.Value != Session["userID"].ToString())
                         {
                             Response.Redirect("Unauthorised.aspx");
                         }
+                        else
+                        {
+                            //Update test to viewed by patient
+                            string sql = "UPDATE app_test SET patienthasviewed = true, patientvieweddate = NOW() WHERE testid = CAST(@testid AS INT) AND COALESCE(patienthasviewed, false) = false;";
+                            var paramList = new List<KeyValuePair<string, string>>() {
+                                new KeyValuePair<string, string>("testid", id)
+                            };
+                            DataServices.executeSQLStatement(sql, paramList);
+
+                        }
                         break;
                     case "clinician":
-                        this.lblSummaryType.Text = "Patient Summary";
+                        //this.lblSummaryType.Text = "New Result";
                         if (Session["userID"].ToString() != this.hdnMatchedclinicianid.Value)
                         {
                             Response.Redirect("Unauthorised.aspx");
@@ -52,57 +67,105 @@ namespace PhysicalHealthApp
                         break;
                 }
 
-                BindDropDownList(this.ddltesttypeid, "SELECT * FROM app_testtype ORDER BY testtypename", "testtypeid", "testtypename", 0);
+                this.hdnUserId.Value = Session["userID"].ToString();
 
-                BindMyResults();
-                BindMyNewResults();
 
             }
         }
 
-        private void BindMyResults()
+        private void GetTestType(string id)
         {
-            string sql = "SELECT * FROM app_test WHERE testtypeid = CAST(@testtypeid AS INT) AND patientid = CAST(@patientid AS INT);";
+            string sql = "SELECT * FROM app_testtype WHERE testtypeid = CAST(@testid AS INT);";
             var paramList = new List<KeyValuePair<string, string>>() {
-                new KeyValuePair<string, string>("testtypeid", this.ddltesttypeid.SelectedValue),
-                new KeyValuePair<string, string>("patientid", this.hdnPatientID.Value)
+                new KeyValuePair<string, string>("testtypeid", id)
             };
+
+
 
             DataSet ds = DataServices.DataSetFromSQL(sql, paramList);
             DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count > 0)
+            {
 
-            this.dgAllMyResults.DataSource = dt;
-            this.dgAllMyResults.DataBind();
 
-            this.lblTestType.Text = this.ddltesttypeid.SelectedItem.Text;
-            this.lblResultCount.Text = dt.Rows.Count.ToString();
-
-            this.Chart1.DataSource = dt;
-            //Give two columns of data to Y-axle 
-            Chart1.Series[0].YValueMembers = "testnumericresult";
-            Chart1.Series[0].XValueMember = "_createddate";
-
-            
-
-            Chart1.DataBind();
-
+                try
+                {
+                    this.lbltesttypename.Text = dt.Rows[0]["testtypename"].ToString();
+                }
+                catch { }
+            }
         }
 
 
-        private void BindMyNewResults()
+        private void GetTestData(string id)
         {
-            string sql = "SELECT a.testid, a.testnumericresult, b.testtypename, a._createddate FROM app_test a INNER JOIN app_testtype b ON a.testtypeid = b.testtypeid WHERE COALESCE(patienthasviewed,false) = false AND patientid = CAST(@patientid AS INT) ORDER BY a._createddate DESC;";
+            string sql = "SELECT * FROM app_test WHERE testid = CAST(@testid AS INT);";
             var paramList = new List<KeyValuePair<string, string>>() {
-                new KeyValuePair<string, string>("testtypeid", this.ddltesttypeid.SelectedValue),
-                new KeyValuePair<string, string>("patientid", this.hdnPatientID.Value)
+                new KeyValuePair<string, string>("testid", id)
             };
+
+
 
             DataSet ds = DataServices.DataSetFromSQL(sql, paramList);
             DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count > 0)
+            {
 
-            this.dgMyNewResults.DataSource = dt;
-            this.dgMyNewResults.DataBind();
+                string patientid = "";
+                try
+                {
+                    patientid = dt.Rows[0]["patientid"].ToString();
+                    this.hdnPatientID.Value = patientid;
+                    GetPatientData(patientid);
+                }
+                catch { }
 
+                string testtypeid = "";
+                try
+                {
+                    testtypeid = dt.Rows[0]["testtypeid"].ToString();
+                    GetTestType(testtypeid);
+                }
+                catch { }
+
+                try
+                {
+                    this.lbltestnumericresult.Text = dt.Rows[0]["testnumericresult"].ToString();
+                }
+                catch { }
+
+                try
+                {
+                    this.lblunitstext.Text = dt.Rows[0]["unitstext"].ToString();
+                }
+                catch { }
+
+                try
+                {
+                    this.lbllowerreferencerange.Text = dt.Rows[0]["lowerreferencerange"].ToString();
+                }
+                catch { }
+
+                try
+                {
+                    this.lblupperreferencerange.Text = dt.Rows[0]["upperreferencerange"].ToString();
+                }
+                catch { }
+
+                try
+                {
+                    this.lblclinicianmessage.Text = dt.Rows[0]["clinicianmessage"].ToString();
+                }
+                catch { }
+
+                try
+                {
+                    this.lblnexttestdate.Text = dt.Rows[0]["nexttestdate"].ToString().Substring(0, 10); ;
+                }
+                catch { }
+
+
+            }
         }
 
         //Drop Down Lists
@@ -206,19 +269,9 @@ namespace PhysicalHealthApp
             }
         }
 
-        protected void btnCreateNewTest_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("CreateNewPatientResult.aspx?id=" + this.hdnPatientID.Value);
-        }
-
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Default.aspx");
-        }
-
-        protected void ddltesttypeid_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BindMyResults();
+            Response.Redirect("PatientSummary.aspx?id=" + this.hdnPatientID.Value);
         }
     }
 }

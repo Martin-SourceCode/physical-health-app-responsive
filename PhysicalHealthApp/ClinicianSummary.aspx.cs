@@ -47,13 +47,15 @@ namespace PhysicalHealthApp
                 }
 
                 GetMyPatients(id);
+                GetMyUnauthorisedPatients(id);
+                GetMyRejectedPatients(id);
 
             }
         }
 
         private void GetMyPatients(string id)
         {
-            string sql = "SELECT * FROM app_user WHERE matchedclinicianid = CAST(@userid AS INT);";
+            string sql = "SELECT * FROM app_user WHERE matchedclinicianid = CAST(@userid AS INT) AND isauthorised = true ORDER BY firstname, lastname;";
             var paramList = new List<KeyValuePair<string, string>>() {
                 new KeyValuePair<string, string>("userid", id)
             };
@@ -63,6 +65,42 @@ namespace PhysicalHealthApp
 
             this.dgMyPatients.DataSource = dt;
             this.dgMyPatients.DataBind();
+            this.lblAllPatientCount.Text = dt.Rows.Count.ToString();
+
+        }
+
+        private void GetMyUnauthorisedPatients(string id)
+        {
+            string sql = "SELECT * FROM app_user WHERE matchedclinicianid = CAST(@userid AS INT) AND COALESCE(isauthorised, false) = false ORDER BY firstname, lastname;";
+            var paramList = new List<KeyValuePair<string, string>>() {
+                new KeyValuePair<string, string>("userid", id)
+            };
+
+            DataSet ds = DataServices.DataSetFromSQL(sql, paramList);
+            DataTable dt = ds.Tables[0];
+
+            this.dgMyUnauthorisedPatients.DataSource = dt;
+            this.dgMyUnauthorisedPatients.DataBind();
+
+            this.lblNewRequestCount.Text = dt.Rows.Count.ToString();
+
+        }
+
+
+        private void GetMyRejectedPatients(string id)
+        {
+            string sql = "SELECT * FROM app_user WHERE matchedclinicianid = CAST(@userid AS INT) AND COALESCE(isrejected, false) = true ORDER BY firstname, lastname;";
+            var paramList = new List<KeyValuePair<string, string>>() {
+                new KeyValuePair<string, string>("userid", id)
+            };
+
+            DataSet ds = DataServices.DataSetFromSQL(sql, paramList);
+            DataTable dt = ds.Tables[0];
+
+            this.dgMyRejectedRequests.DataSource = dt;
+            this.dgMyRejectedRequests.DataBind();
+
+            this.lbRejectedRequestCount.Text = dt.Rows.Count.ToString();
 
         }
 

@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PatientSummary.aspx.cs" Inherits="PhysicalHealthApp.PatientSummary" %>
 
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -55,7 +57,7 @@
                         <br />
                         <div class="row">
                             <div class="col-md-12">
-                                 <asp:DataGrid ID="dgMyNewResults" runat="server" CssClass="table table-striped table-bordered" AutoGenerateColumns="False">
+                                <asp:DataGrid ID="dgMyNewResults" runat="server" CssClass="table table-striped table-bordered" AutoGenerateColumns="False">
 
                                     <Columns>
                                         <asp:BoundColumn DataField="_createddate" DataFormatString="{0:D}" HeaderText="Date">
@@ -101,9 +103,24 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <span style="font-size: 1.8em;"><asp:label ID="lblTestType" runat="server"></asp:label>  Results (<asp:label ID="lblResultCount" runat="server"></asp:label>)</span>
+                                <span style="font-size: 1.8em;">
+                                    <asp:Label ID="lblTestType" runat="server"></asp:Label>
+                                    Results (<asp:Label ID="lblResultCount" runat="server"></asp:Label>)</span>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12" style="text-align: center;">
+                                <asp:Chart ID="Chart1" runat="server" BackColor="64, 64, 64" Width="350px">
+                                <Series>
+                                    <asp:Series Name="Series1"></asp:Series>
+                                </Series>
+                                <ChartAreas>
+                                    <asp:ChartArea Name="ChartArea1" BackColor="#333333"></asp:ChartArea>
+                                </ChartAreas>
+                            </asp:Chart>
+                            </div>                            
+                        </div>
+                        <br />
                         <div class="row">
                             <div class="col-md-12">
                                 <asp:DataGrid ID="dgAllMyResults" runat="server" CssClass="table table-striped table-bordered" AutoGenerateColumns="False">

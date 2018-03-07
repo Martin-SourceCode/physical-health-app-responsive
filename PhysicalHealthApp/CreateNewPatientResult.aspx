@@ -73,19 +73,19 @@
                                 <asp:Panel ID="fgtestnumericresult" runat="server" class="form-group">
                                     <label class="control-label" for="txttestnumericresult">Result Value</label>
                                     <asp:Label ID="errtestnumericresult" runat="server"></asp:Label>
-                                    <asp:TextBox ID="txttestnumericresult" runat="server" placeholder="0.0" CssClass="form-control input-lg" TextMode="Number"></asp:TextBox>
+                                    <asp:TextBox ID="txttestnumericresult" runat="server" placeholder="0.0" CssClass="form-control input-lg"></asp:TextBox>
                                 </asp:Panel>
 
                                 <asp:Panel ID="fglowerreferencerange" runat="server" class="form-group">
                                     <label class="control-label" for="txtlowerreferencerange">Lower Reference Range</label>
                                     <asp:Label ID="errlowerreferencerange" runat="server"></asp:Label>
-                                    <asp:TextBox ID="txtlowerreferencerange" runat="server" placeholder="0.0" CssClass="form-control input-lg" TextMode="Number"></asp:TextBox>
+                                    <asp:TextBox ID="txtlowerreferencerange" runat="server" placeholder="0.0" CssClass="form-control input-lg"></asp:TextBox>
                                 </asp:Panel>
 
                                 <asp:Panel ID="fgupperreferencerange" runat="server" class="form-group">
                                     <label class="control-label" for="txtupperreferencerange">Upper Reference Range</label>
                                     <asp:Label ID="lblupperreferencerange" runat="server"></asp:Label>
-                                    <asp:TextBox ID="txtupperreferencerange" runat="server" placeholder="0.0" CssClass="form-control input-lg" TextMode="Number"></asp:TextBox>
+                                    <asp:TextBox ID="txtupperreferencerange" runat="server" placeholder="0.0" CssClass="form-control input-lg" ></asp:TextBox>
                                 </asp:Panel>
 
                                 <asp:Panel ID="fgunitstext" runat="server" class="form-group">
