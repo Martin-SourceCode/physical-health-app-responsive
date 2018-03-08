@@ -13,15 +13,6 @@ namespace PhysicalHealthApp {
     public partial class Login1 {
         
         /// <summary>
-        /// gridcss control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlLink gridcss;
-        
-        /// <summary>
         /// head control.
         /// </summary>
         /// <remarks>
