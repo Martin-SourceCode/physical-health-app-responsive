@@ -119,7 +119,7 @@
 
                 <div class="login-form">
                     <div style="text-align: center;">
-                        <img src="img/NHS-Digital-logo.png" style="max-width: 99%;" />
+                        <img src="img/Code4Health.png" style="max-width: 99%;" />
                     </div>
                 </div>
             </div>

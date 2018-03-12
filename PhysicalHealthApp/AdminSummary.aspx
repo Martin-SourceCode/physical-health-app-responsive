@@ -35,10 +35,10 @@
                         <div class="row">
                             <div class="col-md-8">
 
-                                <h4 class="panel-title">GMC Number:
+                               <%-- <h4 class="panel-title">GMC Number:
                                     <asp:Label ID="lblGMC" runat="server"></asp:Label></h4>
                                 <h4 class="panel-title">Organisation: 
-                                    <asp:Label ID="lblOrganisation" runat="server"></asp:Label></h4>
+                                    <asp:Label ID="lblOrganisation" runat="server"></asp:Label></h4>--%>
                                 <asp:HiddenField ID="hdnClinicianID" runat="server" />
                             </div>
                             <div class="col-md-4">
@@ -71,12 +71,12 @@
                                                             <asp:Label ID="lblFullName" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.firstname") %>'></asp:Label>
                                                             <asp:Label ID="Label1" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.lastname") %>'></asp:Label>
                                                         </span>
-                                                        <br />
+                                                        <%--<br />
                                                         NHS Number:
                                                         <asp:Label ID="lblNHSNo" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.nhsnumber") %>'></asp:Label>
                                                         <br />
                                                         Date of Birth:
-                                                        <asp:Label ID="lblDoB" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.dateofbirth", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                        <asp:Label ID="lblDoB" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.dateofbirth", "{0:dd/MM/yyyy}") %>'></asp:Label>--%>
                                                     </div>
                                                 </a>
                                             </ItemTemplate>
@@ -119,12 +119,12 @@
                                                             <asp:Label ID="lblFullName" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.firstname") %>'></asp:Label>
                                                             <asp:Label ID="Label1" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.lastname") %>'></asp:Label>
                                                         </span>
-                                                        <br />
+                                                        <%--<br />
                                                         NHS Number:
                                                         <asp:Label ID="lblNHSNo" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.nhsnumber") %>'></asp:Label>
                                                         <br />
                                                         Date of Birth:
-                                                        <asp:Label ID="lblDoB" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.dateofbirth", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                        <asp:Label ID="lblDoB" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.dateofbirth", "{0:dd/MM/yyyy}") %>'></asp:Label>--%>
                                                     </div>
                                                 </a>
                                             </ItemTemplate>
@@ -167,12 +167,12 @@
                                                             <asp:Label ID="lblFullName" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.firstname") %>'></asp:Label>
                                                             <asp:Label ID="Label1" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.lastname") %>'></asp:Label>
                                                         </span>
-                                                        <br />
+                                                      <%--  <br />
                                                         NHS Number:
                                                         <asp:Label ID="lblNHSNo" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.nhsnumber") %>'></asp:Label>
                                                         <br />
                                                         Date of Birth:
-                                                        <asp:Label ID="lblDoB" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.dateofbirth", "{0:dd/MM/yyyy}") %>'></asp:Label>
+                                                        <asp:Label ID="lblDoB" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.dateofbirth", "{0:dd/MM/yyyy}") %>'></asp:Label>--%>
                                                     </div>
                                                 </a>
                                             </ItemTemplate>

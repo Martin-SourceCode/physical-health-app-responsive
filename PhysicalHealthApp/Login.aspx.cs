@@ -29,10 +29,10 @@ namespace PhysicalHealthApp
                 }
                 catch { }
 
-                if (loggedInUser.Length > 0)
-                {
-                    Response.Redirect(redirectURL);
-                }
+                //if (loggedInUser.Length > 0)
+                //{
+                //    Response.Redirect(redirectURL);
+                //}
 
                 Page.Form.DefaultButton = btnLogin.UniqueID;
                 Page.Form.DefaultFocus = this.txtEmail.UniqueID;

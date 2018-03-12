@@ -118,7 +118,7 @@ namespace PhysicalHealthApp
         private void GetMyUnauthorisedUsers()
 
         {
-            string sql = "SELECT * FROM app_user WHERE usertype='Clinician' AND organisationid =  CAST(@organisationid AS INT) AND COALESCE(isauthorised, false) = false ORDER BY firstname, lastname;";
+            string sql = "SELECT * FROM app_user WHERE usertype='Clinician' AND organisationid =  CAST(@organisationid AS INT) AND COALESCE(isauthorised, false)  = false AND COALESCE(isrejected, false) = false  ORDER BY firstname, lastname;";
             var paramList = new List<KeyValuePair<string, string>>()
             {
             };

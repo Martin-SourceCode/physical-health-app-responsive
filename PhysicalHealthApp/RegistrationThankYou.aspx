@@ -32,7 +32,7 @@
                         <br />
 
                         <div style="text-align: center;">
-                            <a href="login.aspx" style="font-size:2em;">Return to login page</a>
+                            <a href="logout.aspx" style="font-size:2em;">Return to login page</a>
                         </div>
 
                     </div>

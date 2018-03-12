@@ -58,7 +58,8 @@
                                                         <span style="font-size: 1.8em;">
                                                             <asp:Label ID="lblFullName" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.firstname") %>'></asp:Label>
                                                             <asp:Label ID="Label1" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.lastname") %>'></asp:Label>
-                                                        </span><br />
+                                                        </span>
+                                                        <br />
                                                         NHS Number:
                                                         <asp:Label ID="lblNHSNo" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.nhsnumber") %>'></asp:Label>
                                                         <br />
@@ -105,7 +106,8 @@
                                                         <span style="font-size: 1.8em;">
                                                             <asp:Label ID="lblFullName" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.firstname") %>'></asp:Label>
                                                             <asp:Label ID="Label1" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.lastname") %>'></asp:Label>
-                                                        </span><br />
+                                                        </span>
+                                                        <br />
                                                         NHS Number:
                                                         <asp:Label ID="lblNHSNo" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.nhsnumber") %>'></asp:Label>
                                                         <br />
@@ -150,7 +152,8 @@
                                                         <span style="font-size: 1.8em;">
                                                             <asp:Label ID="lblFullName" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.firstname") %>'></asp:Label>
                                                             <asp:Label ID="Label1" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.lastname") %>'></asp:Label>
-                                                        </span><br />
+                                                        </span>
+                                                        <br />
                                                         NHS Number:
                                                         <asp:Label ID="lblNHSNo" runat="server" Text='<%# DataBinder.Eval(Container, "DataItem.nhsnumber") %>'></asp:Label>
                                                         <br />
@@ -172,9 +175,10 @@
                 </div>
             </div>
 
-
-
         </div>
+
+
+    </div>
 
 </asp:Content>
 

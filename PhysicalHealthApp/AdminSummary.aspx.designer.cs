@@ -67,24 +67,6 @@ namespace PhysicalHealthApp {
         protected global::System.Web.UI.WebControls.Label lblClinianName;
         
         /// <summary>
-        /// lblGMC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGMC;
-        
-        /// <summary>
-        /// lblOrganisation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOrganisation;
-        
-        /// <summary>
         /// hdnClinicianID control.
         /// </summary>
         /// <remarks>
