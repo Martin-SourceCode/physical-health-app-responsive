@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMartin-SourceCode%2Fphysical-health-app-responsive.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FMartin-SourceCode%2Fphysical-health-app-responsive?ref=badge_shield)
+
 Physical Health App Responsive
 --------------------------------------
 
@@ -64,3 +66,7 @@ Select the Clinician you created from the  New User Requests work list and autho
 You can now log out and log back in as the clinician you created
 
 You will now be able to register as a patient and authorise their request
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FMartin-SourceCode%2Fphysical-health-app-responsive.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FMartin-SourceCode%2Fphysical-health-app-responsive?ref=badge_large)
